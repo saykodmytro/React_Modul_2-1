@@ -1,6 +1,12 @@
 import css from './Product.module.css';
 
-export const Product = ({ title, price, discount = null }) => {
+export const Product = ({
+  id,
+  title,
+  price,
+  discount,
+  hendleDeleteProduct,
+}) => {
   const productBg = discount ? 'red' : 'green';
 
   const productStyles = {
@@ -28,6 +34,13 @@ export const Product = ({ title, price, discount = null }) => {
       <p>Price: {price}$</p>
       <button className={css.prodAddToCartBtn} type="button">
         Add to cart
+      </button>
+      <button
+        onClick={() => hendleDeleteProduct(id)}
+        className={css.prodAddToCartBtn}
+        type="button"
+      >
+        &times;
       </button>
     </div>
   );
